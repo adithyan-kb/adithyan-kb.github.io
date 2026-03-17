@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #0f172a;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 50px;
+            background: rgba(255,255,255,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            backdrop-filter: blur(10px);
+        }
+
+        header h1 {
+            color: #38bdf8;
+        }
+
+        nav a {
+            margin-left: 20px;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        section {
+            padding: 100px 50px;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text h2 {
+            font-size: 50px;
+        }
+
+        .hero-text span {
+            color: #38bdf8;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: #38bdf8;
+            border: none;
+            color: white;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .about, .projects, .contact {
+            background: #1e293b;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: #0f172a;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .contact input, .contact textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #020617;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>MyPortfolio</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <h2>Hello, I'm <span>Your Name</span></h2>
+        <p>Aspiring Developer | Cybersecurity Enthusiast</p>
+        <button class="btn">Download Resume</button>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2>About Me</h2>
+    <p>I am passionate about technology, networking, and cybersecurity. I build projects and learn new skills daily.</p>
+</section>
+
+<section class="projects" id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <h3>Project 1</h3>
+            <p>Short description</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 2</h3>
+            <p>Short description</p>
+        </div>
+        <div class="project-card">
+            <h3>Project 3</h3>
+            <p>Short description</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea rows="5" placeholder="Message"></textarea>
+    <button class="btn">Send</button>
+</section>
+
+<footer>
+    <p>© 2026 Your Name | All Rights Reserved</p>
+</footer>
+
+<script>
+    // Smooth Scroll
+    document.querySelectorAll('a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+</body>
+</html>
