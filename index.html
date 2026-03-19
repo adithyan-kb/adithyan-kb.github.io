@@ -1,184 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adithyakrishnan B | System Administrator</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        body {
-            background: #0f172a;
-            color: white;
-        }
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
 
-        header {
-            display: flex;
-            justify-content: space-between;
-            padding: 20px 50px;
-            background: rgba(255,255,255,0.05);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            backdrop-filter: blur(10px);
-        }
+/* 🌌 BACKGROUND ANIMATION */
+body::before, body::after {
+    content: "";
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    background: #6366f1;
+    filter: blur(150px);
+    opacity: 0.2;
+    border-radius: 50%;
+    animation: float 10s infinite alternate;
+}
 
-        header h1 {
-            color: #38bdf8;
-        }
+body::after {
+    background: #8b5cf6;
+    top: 60%;
+    left: 60%;
+    animation-duration: 15s;
+}
 
-        nav a {
-            margin-left: 20px;
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+@keyframes float {
+    from { transform: translate(0,0); }
+    to { transform: translate(200px,150px); }
+}
 
-        nav a:hover {
-            color: #38bdf8;
-        }
+/* NAVBAR */
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    position: fixed;
+    width: 100%;
+    background: rgba(15,23,42,0.7);
+    backdrop-filter: blur(10px);
+}
 
-        section {
-            padding: 100px 50px;
-        }
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #cbd5f5;
+}
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+nav a:hover {
+    color: #818cf8;
+}
 
-        .hero-text h2 {
-            font-size: 50px;
-        }
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+}
 
-        .hero-text span {
-            color: #38bdf8;
-        }
+.hero h1 {
+    font-size: 50px;
+}
 
-        .btn {
-            padding: 10px 20px;
-            background: #38bdf8;
-            border: none;
-            color: white;
-            margin-top: 20px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
+.hero span {
+    color: #818cf8;
+}
 
-        .about, .projects, .contact {
-            background: #1e293b;
-            margin-top: 20px;
-            border-radius: 10px;
-        }
+.hero p {
+    margin-top: 10px;
+    color: #94a3b8;
+}
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-            gap: 20px;
-        }
+/* SECTIONS */
+section {
+    padding: 100px 60px;
+}
 
-        .project-card {
-            background: #0f172a;
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    transition: 0.3s;
+}
 
-        .project-card:hover {
-            transform: scale(1.05);
-        }
+.card p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
 
-        .contact input, .contact textarea {
-            width: 100%;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            border: none;
-        }
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(99,102,241,0.3);
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #020617;
-        }
-    </style>
+.card:hover h3 {
+    color: #818cf8;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 25px;
+}
+
+/* BUTTON */
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #6366f1;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #818cf8;
+}
+
+/* FORM */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* FADE ANIMATION */
+.fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1s;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #94a3b8;
+}
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>MyPortfolio</h1>
+    <h2>Adithyakrishnan B</h2>
     <nav>
-        <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </nav>
 </header>
 
-<section class="hero" id="home">
-    <div class="hero-text">
-        <h2>Hello, I'm <span>Your Name</span></h2>
-        <p>Aspiring Developer | Cybersecurity Enthusiast</p>
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Hi, I'm <span>Adithyakrishnan B</span></h1>
+        <p>System Administrator | System Engineer | Hardware Technician</p>
         <button class="btn">Download Resume</button>
     </div>
 </section>
 
-<section class="about" id="about">
-    <h2>About Me</h2>
-    <p>I am passionate about technology, networking, and cybersecurity. I build projects and learn new skills daily.</p>
-</section>
+<!-- ABOUT -->
+<section id="about" class="fade">
+    <h2>About Me</h2><br>
+    <div class="card">
+        <p>
+        I am <strong>Adithyakrishnan B</strong>, an aspiring System Administrator with hands-on experience in system maintenance, hardware troubleshooting, and IT support. I have worked in roles such as System Engineer and Hardware Technician, where I gained practical exposure to managing computer systems and resolving real-world technical issues.
+        </p>
 
-<section class="projects" id="projects">
-    <h2>My Projects</h2>
-    <div class="projects-grid">
-        <div class="project-card">
-            <h3>Project 1</h3>
-            <p>Short description</p>
-        </div>
-        <div class="project-card">
-            <h3>Project 2</h3>
-            <p>Short description</p>
-        </div>
-        <div class="project-card">
-            <h3>Project 3</h3>
-            <p>Short description</p>
-        </div>
+        <p>
+        My experience includes installing and configuring operating systems, maintaining hardware, assisting in network setup, and ensuring smooth system operations. My role as a Lab Assistant strengthened my ability to manage multiple systems and provide technical support efficiently.
+        </p>
+
+        <p>
+        I have a strong interest in <strong>Linux system administration, networking, and cybersecurity</strong>. I actively build home lab environments using virtualization tools and continuously explore system monitoring and network security techniques.
+        </p>
+
+        <p>
+        I am a quick learner with a problem-solving mindset, passionate about improving system performance and security. My goal is to become a skilled System Administrator and contribute to maintaining secure and efficient IT infrastructure.
+        </p>
+
+        <p>
+        <strong>Career Objective:</strong> To obtain a System Administrator role where I can apply my technical skills and grow in a professional IT environment.
+        </p>
     </div>
 </section>
 
-<section class="contact" id="contact">
-    <h2>Contact Me</h2>
-    <input type="text" placeholder="Your Name">
-    <input type="email" placeholder="Your Email">
+<!-- EXPERIENCE -->
+<section id="experience" class="fade">
+    <h2>Experience</h2><br>
+    <div class="grid">
+
+        <div class="card">
+            <h3>System Engineer</h3>
+            <p>Geekboz | 6 Months</p>
+        </div>
+
+        <div class="card">
+            <h3>Hardware Technician</h3>
+            <p>Mastermind, Alappuzha | 1 Year</p>
+        </div>
+
+        <div class="card">
+            <h3>Hardware Technician & Lab Assistant</h3>
+            <p>Naipunnya College, Cherthala</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade">
+    <h2>Skills</h2><br>
+    <div class="grid">
+        <div class="card"><h3>Linux</h3></div>
+        <div class="card"><h3>Networking</h3></div>
+        <div class="card"><h3>Hardware</h3></div>
+        <div class="card"><h3>Cybersecurity</h3></div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade">
+    <h2>Projects</h2><br>
+    <div class="grid">
+        <div class="card"><h3>Home Lab Setup</h3></div>
+        <div class="card"><h3>Nmap Scanning</h3></div>
+        <div class="card"><h3>ARP Spoofing</h3></div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade">
+    <h2>Contact</h2>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
     <textarea rows="5" placeholder="Message"></textarea>
     <button class="btn">Send</button>
 </section>
 
 <footer>
-    <p>© 2026 Your Name | All Rights Reserved</p>
+    <p>© 2026 Adithyakrishnan B</p>
 </footer>
 
 <script>
-    // Smooth Scroll
-    document.querySelectorAll('a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
+const elements = document.querySelectorAll('.fade');
+
+function showOnScroll() {
+    const trigger = window.innerHeight * 0.85;
+    elements.forEach(el => {
+        if (el.getBoundingClientRect().top < trigger) {
+            el.classList.add('show');
+        }
     });
+}
+window.addEventListener('scroll', showOnScroll);
+showOnScroll();
 </script>
 
 </body>
