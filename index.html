@@ -21,7 +21,7 @@ body {
     overflow-x: hidden;
 }
 
-/* BACKGROUND */
+/* BACKGROUND ANIMATION */
 body::before, body::after {
     content: "";
     position: fixed;
@@ -49,19 +49,38 @@ body::after {
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 15px 20px;
     position: fixed;
     width: 100%;
-    background: rgba(15,23,42,0.8);
+    background: rgba(15,23,42,0.85);
     backdrop-filter: blur(10px);
     z-index: 1000;
 }
 
+/* HAMBURGER */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    background: #fff;
+    height: 3px;
+    width: 25px;
+    margin: 4px 0;
+}
+
+/* NAV LINKS */
+nav {
+    display: flex;
+}
+
 nav a {
-    margin-left: 15px;
+    margin-left: 20px;
     text-decoration: none;
     color: #cbd5f5;
-    font-size: 14px;
 }
 
 nav a:hover {
@@ -86,7 +105,6 @@ nav a:hover {
 
 .hero p {
     margin-top: 10px;
-    font-size: 14px;
 }
 
 /* SECTIONS */
@@ -132,7 +150,7 @@ section {
     border: none;
     color: white;
     border-radius: 6px;
-    font-size: 14px;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -163,29 +181,41 @@ input, textarea {
 footer {
     text-align: center;
     padding: 20px;
-    font-size: 14px;
 }
 
-/* 💻 TABLET */
+/* TABLET */
 @media(min-width: 768px) {
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    nav a {
-        font-size: 16px;
-    }
-
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    section {
-        padding: 100px 40px;
+/* MOBILE NAV */
+@media(max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #0f172a;
+        flex-direction: column;
+        width: 200px;
+        display: none;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        margin: 15px;
     }
 }
 
-/* 🖥️ DESKTOP */
+/* DESKTOP */
 @media(min-width: 1024px) {
     .hero {
         padding: 0 60px;
@@ -210,7 +240,14 @@ footer {
 
 <header>
     <h3>Adithyakrishnan B</h3>
-    <nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav id="nav">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
@@ -219,6 +256,7 @@ footer {
     </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
     <div>
         <h1>Hi, I'm <span>Adithyakrishnan B</span></h1>
@@ -227,45 +265,62 @@ footer {
     </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="fade">
     <h2>About Me</h2><br>
     <div class="card">
-        <p>I am an aspiring System Administrator with experience in hardware, networking, and IT support.</p>
+        <p>
+        I am <strong>Adithyakrishnan B</strong>, an aspiring System Administrator with hands-on experience in system maintenance, hardware troubleshooting, and IT support.
+        </p>
+        <p>
+        I have worked as a System Engineer and Hardware Technician, gaining real-world experience in managing systems and resolving technical issues.
+        </p>
+        <p>
+        I am passionate about Linux, networking, and cybersecurity, and continuously improve my skills through practical labs.
+        </p>
+        <p>
+        <strong>Career Objective:</strong> To grow as a System Administrator and contribute to secure IT infrastructure.
+        </p>
     </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience" class="fade">
     <h2>Experience</h2><br>
     <div class="grid">
-        <div class="card"><h3>System Engineer</h3><p>Geekboz</p></div>
-        <div class="card"><h3>Hardware Technician</h3><p>Mastermind</p></div>
+        <div class="card"><h3>System Engineer</h3><p>Geekboz | 6 Months</p></div>
+        <div class="card"><h3>Hardware Technician</h3><p>Mastermind | 1 Year</p></div>
         <div class="card"><h3>Lab Assistant</h3><p>Naipunnya College</p></div>
     </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills" class="fade">
     <h2>Skills</h2><br>
     <div class="grid">
         <div class="card"><h3>Linux</h3></div>
         <div class="card"><h3>Networking</h3></div>
         <div class="card"><h3>Hardware</h3></div>
+        <div class="card"><h3>Cybersecurity</h3></div>
     </div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="fade">
     <h2>Projects</h2><br>
     <div class="grid">
-        <div class="card"><h3>Home Lab</h3></div>
-        <div class="card"><h3>Nmap</h3></div>
+        <div class="card"><h3>Home Lab Setup</h3></div>
+        <div class="card"><h3>Nmap Scanning</h3></div>
         <div class="card"><h3>ARP Spoofing</h3></div>
     </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact" class="fade">
     <h2>Contact</h2>
     <input placeholder="Name">
     <input placeholder="Email">
-    <textarea rows="5"></textarea>
+    <textarea rows="5" placeholder="Message"></textarea>
     <button class="btn">Send</button>
 </section>
 
@@ -274,6 +329,10 @@ footer {
 </footer>
 
 <script>
+function toggleMenu() {
+    document.getElementById("nav").classList.toggle("active");
+}
+
 const elements = document.querySelectorAll('.fade');
 
 function showOnScroll() {
@@ -284,6 +343,7 @@ function showOnScroll() {
         }
     });
 }
+
 window.addEventListener('scroll', showOnScroll);
 showOnScroll();
 </script>
