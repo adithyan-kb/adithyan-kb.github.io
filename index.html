@@ -21,14 +21,14 @@ body {
     overflow-x: hidden;
 }
 
-/* 🌌 BACKGROUND ANIMATION */
+/* BACKGROUND */
 body::before, body::after {
     content: "";
     position: fixed;
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     background: #6366f1;
-    filter: blur(150px);
+    filter: blur(120px);
     opacity: 0.2;
     border-radius: 50%;
     animation: float 10s infinite alternate;
@@ -42,25 +42,26 @@ body::after {
 }
 
 @keyframes float {
-    from { transform: translate(0,0); }
-    to { transform: translate(200px,150px); }
+    to { transform: translate(150px,100px); }
 }
 
 /* NAVBAR */
 header {
     display: flex;
     justify-content: space-between;
-    padding: 20px 60px;
+    padding: 15px 20px;
     position: fixed;
     width: 100%;
-    background: rgba(15,23,42,0.7);
+    background: rgba(15,23,42,0.8);
     backdrop-filter: blur(10px);
+    z-index: 1000;
 }
 
 nav a {
-    margin-left: 25px;
+    margin-left: 15px;
     text-decoration: none;
     color: #cbd5f5;
+    font-size: 14px;
 }
 
 nav a:hover {
@@ -72,11 +73,11 @@ nav a:hover {
     height: 100vh;
     display: flex;
     align-items: center;
-    padding: 0 60px;
+    padding: 0 20px;
 }
 
 .hero h1 {
-    font-size: 50px;
+    font-size: 32px;
 }
 
 .hero span {
@@ -85,12 +86,12 @@ nav a:hover {
 
 .hero p {
     margin-top: 10px;
-    color: #94a3b8;
+    font-size: 14px;
 }
 
 /* SECTIONS */
 section {
-    padding: 100px 60px;
+    padding: 80px 20px;
 }
 
 /* CARD */
@@ -98,18 +99,18 @@ section {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    padding: 25px;
+    padding: 20px;
     transition: 0.3s;
 }
 
 .card p {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     line-height: 1.6;
 }
 
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(99,102,241,0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(99,102,241,0.3);
 }
 
 .card:hover h3 {
@@ -119,19 +120,19 @@ section {
 /* GRID */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 25px;
+    grid-template-columns: 1fr;
+    gap: 20px;
 }
 
 /* BUTTON */
 .btn {
-    margin-top: 20px;
-    padding: 12px 25px;
+    margin-top: 15px;
+    padding: 10px 20px;
     background: #6366f1;
     border: none;
     color: white;
-    border-radius: 8px;
-    cursor: pointer;
+    border-radius: 6px;
+    font-size: 14px;
 }
 
 .btn:hover {
@@ -141,13 +142,13 @@ section {
 /* FORM */
 input, textarea {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     margin-top: 10px;
-    border-radius: 8px;
+    border-radius: 6px;
     border: none;
 }
 
-/* FADE ANIMATION */
+/* ANIMATION */
 .fade {
     opacity: 0;
     transform: translateY(30px);
@@ -162,7 +163,45 @@ input, textarea {
 footer {
     text-align: center;
     padding: 20px;
-    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* 💻 TABLET */
+@media(min-width: 768px) {
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    section {
+        padding: 100px 40px;
+    }
+}
+
+/* 🖥️ DESKTOP */
+@media(min-width: 1024px) {
+    .hero {
+        padding: 0 60px;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    section {
+        padding: 100px 60px;
+    }
 }
 </style>
 </head>
@@ -170,7 +209,7 @@ footer {
 <body>
 
 <header>
-    <h2>Adithyakrishnan B</h2>
+    <h3>Adithyakrishnan B</h3>
     <nav>
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
@@ -180,7 +219,6 @@ footer {
     </nav>
 </header>
 
-<!-- HERO -->
 <section class="hero">
     <div>
         <h1>Hi, I'm <span>Adithyakrishnan B</span></h1>
@@ -189,82 +227,45 @@ footer {
     </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="fade">
     <h2>About Me</h2><br>
     <div class="card">
-        <p>
-        I am <strong>Adithyakrishnan B</strong>, an aspiring System Administrator with hands-on experience in system maintenance, hardware troubleshooting, and IT support. I have worked in roles such as System Engineer and Hardware Technician, where I gained practical exposure to managing computer systems and resolving real-world technical issues.
-        </p>
-
-        <p>
-        My experience includes installing and configuring operating systems, maintaining hardware, assisting in network setup, and ensuring smooth system operations. My role as a Lab Assistant strengthened my ability to manage multiple systems and provide technical support efficiently.
-        </p>
-
-        <p>
-        I have a strong interest in <strong>Linux system administration, networking, and cybersecurity</strong>. I actively build home lab environments using virtualization tools and continuously explore system monitoring and network security techniques.
-        </p>
-
-        <p>
-        I am a quick learner with a problem-solving mindset, passionate about improving system performance and security. My goal is to become a skilled System Administrator and contribute to maintaining secure and efficient IT infrastructure.
-        </p>
-
-        <p>
-        <strong>Career Objective:</strong> To obtain a System Administrator role where I can apply my technical skills and grow in a professional IT environment.
-        </p>
+        <p>I am an aspiring System Administrator with experience in hardware, networking, and IT support.</p>
     </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="fade">
     <h2>Experience</h2><br>
     <div class="grid">
-
-        <div class="card">
-            <h3>System Engineer</h3>
-            <p>Geekboz | 6 Months</p>
-        </div>
-
-        <div class="card">
-            <h3>Hardware Technician</h3>
-            <p>Mastermind, Alappuzha | 1 Year</p>
-        </div>
-
-        <div class="card">
-            <h3>Hardware Technician & Lab Assistant</h3>
-            <p>Naipunnya College, Cherthala</p>
-        </div>
-
+        <div class="card"><h3>System Engineer</h3><p>Geekboz</p></div>
+        <div class="card"><h3>Hardware Technician</h3><p>Mastermind</p></div>
+        <div class="card"><h3>Lab Assistant</h3><p>Naipunnya College</p></div>
     </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills" class="fade">
     <h2>Skills</h2><br>
     <div class="grid">
         <div class="card"><h3>Linux</h3></div>
         <div class="card"><h3>Networking</h3></div>
         <div class="card"><h3>Hardware</h3></div>
-        <div class="card"><h3>Cybersecurity</h3></div>
     </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="fade">
     <h2>Projects</h2><br>
     <div class="grid">
-        <div class="card"><h3>Home Lab Setup</h3></div>
-        <div class="card"><h3>Nmap Scanning</h3></div>
+        <div class="card"><h3>Home Lab</h3></div>
+        <div class="card"><h3>Nmap</h3></div>
         <div class="card"><h3>ARP Spoofing</h3></div>
     </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="fade">
     <h2>Contact</h2>
-    <input type="text" placeholder="Name">
-    <input type="email" placeholder="Email">
-    <textarea rows="5" placeholder="Message"></textarea>
+    <input placeholder="Name">
+    <input placeholder="Email">
+    <textarea rows="5"></textarea>
     <button class="btn">Send</button>
 </section>
 
